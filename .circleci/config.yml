@@ -24,7 +24,7 @@ jobs:
       - run:
           name: Install API Dependencies
           command: |
-            npm run backend:install
+            npm run api:install
 
       # Build backend and fronend
       - run:
@@ -34,7 +34,7 @@ jobs:
       - run:
           name: API Build
           command: |
-            npm run backend:build
+            npm run api:build
 
   deploy:
     docker:
@@ -54,4 +54,4 @@ jobs:
       - run:
           name: API Deploy
           command: |
-            npm run backend:deploy
+            npm run api:deploy

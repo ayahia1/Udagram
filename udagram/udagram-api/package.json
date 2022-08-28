@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf www/ || true",
     "build": "npm install . && npm run clean && npx tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json",
-    "deploy": "npm run build && cd www && eb init && eb use udagram-api-dev && eb deploy udagram-api-dev",
+    "deploy": "npm run build && cd www && eb init $ && eb use $APPLICATION_NAME  -r $AWS_DEFAULT_REGION && eb deploy $ENV_NAME",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

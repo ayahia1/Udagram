@@ -5,7 +5,7 @@
   "main": "src/server.ts",
   "scripts": {
     "clean": "rm -rf www/ || true",
-    "build": "npm run clean && npx tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json",
+    "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && cp .npmrc www/.npmrc && cp package.json www/package.json",
     "deploy": "npm run build && eb list && eb use udagram-api-dev && eb deploy",
     "start": "npm run build && node ./www/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"

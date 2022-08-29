@@ -6,9 +6,9 @@
   "scripts": {
     "clean": "rm -rf www/ || true",
     "build": "npm install . && npm run clean && npx tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json",
-    "deploy": "npm run build && cd www && eb init $APPLICATION_NAME -r $AWS_DEFAULT_REGION && eb deploy $ENV_NAME",
+    "deploy": "npm run build && chmod +x bin/deploy.sh && bin/deploy.sh",
     "start": "node server.js",
-    "dev": "npm run build && cs www && node server.js",
+    "dev": "npm run build && cd www && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
